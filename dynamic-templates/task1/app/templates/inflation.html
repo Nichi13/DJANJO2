@@ -1,0 +1,85 @@
+ <!DOCTYPE html>{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Инфляция в России</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    {% block content %}
+      <div class="row">
+        <h1 class="col s12">Инфляция в России</h1>
+        <div class="col s12 m8">
+          <style type="text/css">
+            td {background: #ffffff;
+   }
+            td.col1 { background: #c0c0c0; }
+            th.col1 { background: #c0c0c0; }
+   td.col2 { background: #f08080; }
+   td.col3 { background: yellow; }
+          </style>
+          <table border="5">
+            <tr>
+            <th>Год</th>
+            <th>Январь</th>
+            <th>Февраль</th>
+            <th>Март</th>
+            <th>Апрель</th>
+            <th>Май</th>
+            <th>Июнь</th>
+            <th>Июль</th>
+            <th>Август</th>
+            <th>Сентябрь</th>
+            <th>Октябрь</th>
+            <th>Ноябрь</th>
+            <th>Декабрь</th>
+            <th class="col1" >Суммарная</th>
+            </tr>
+            {% for i in message %}
+            <tr>
+              {% if i.Год > 1 %}
+                <td class="col2">{{ i.Год }}</td>
+              <!--{% elif a == 2 %}-->
+                <!--a == 2-->
+              {% else %}
+                  <td class="col2">{{ i.Год }}</td>
+              {% endif %}
+              {% if i.Янв > 1 %}
+                <td class="col2">{{ i.Янв }}</td>
+              <!--{% elif a == 2 %}-->
+                <!--a == 2-->
+              {% else %}
+                  <td>{{ i.Янв }}</td>
+              {% endif %}
+              <!--<td>{{ i.Янв }}</td>-->
+              <td>{{ i.Фев }}</td>
+              <td>{{ i.Мар}}</td>
+              <td>{{ i.Апр }}</td>
+              <td>{{ i.Май }}</td>
+              <td>{{ i.Июн }}</td>
+              <td>{{ i.Июл }}</td>
+              <td>{{ i.Авг }}</td>
+              <td>{{ i.Сен }}</td>
+              <td>{{ i.Окт }}</td>
+              <td>{{ i.Ноя }}</td>
+              <td>{{ i.Дек }}</td>
+              <td class="col1">{{ i.Суммарная }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+
+        <!-- Ваша логика -->
+
+        </div>
+      </div>
+    {% endblock %}
+
+  </body>
+</html>
