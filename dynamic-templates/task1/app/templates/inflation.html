@@ -1,3 +1,4 @@
+{% load news_filters %}
  <!DOCTYPE html>{% load static %}
 <html>
   <head>
@@ -25,6 +26,7 @@
    td.col2 { background: #f08080; }
    td.col3 { background: yellow; }
           </style>
+          {% load news_filters %}
           <table border="5">
             <tr>
             <th>Год</th>
@@ -44,17 +46,9 @@
             </tr>
             {% for i in message %}
             <tr>
-              {% if i.Год > 1 %}
-                <td class="col2">{{ i.Год }}</td>
-              <!--{% elif a == 2 %}-->
-                <!--a == 2-->
-              {% else %}
-                  <td class="col2">{{ i.Год }}</td>
-              {% endif %}
-              {% if i.Янв > 1 %}
+              <td class="col2">{{ i.Год }}</td>
+              {% if i.Янв|to_int >= 1 %}
                 <td class="col2">{{ i.Янв }}</td>
-              <!--{% elif a == 2 %}-->
-                <!--a == 2-->
               {% else %}
                   <td>{{ i.Янв }}</td>
               {% endif %}

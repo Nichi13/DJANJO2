@@ -48,6 +48,9 @@ def score(value):
 @register.filter
 def format_selftext(value, count):
     text_len = len(value)
-    result = value[0:count]+'...'+value[(text_len-count):(text_len)]
+    if len(set(value.split())) >= 3:
+        result = value[0:count]+'...'+value[(text_len-count):(text_len)]
+    else:
+        result = value
     return result
 
